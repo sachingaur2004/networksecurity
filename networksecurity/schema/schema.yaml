@@ -1,0 +1,11 @@
+columns:
+  feature1: int
+  feature2: float
+  feature3: int
+  label: int
+
+numerical_columns:
+  - feature1
+  - feature2
+  - feature3
+  - label

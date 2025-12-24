@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-from networksecurity.constant.training_pipeline import (
+from networksecurity.constant.training_pipeline.training_pipeline import (
     PIPELINE_NAME,
     ARTIFACT_DIR,
     DATA_INGESTION_DIR_NAME,
@@ -12,7 +12,13 @@ from networksecurity.constant.training_pipeline import (
     DATA_INGESTION_TRAIN_TEST_SPLIT_RATION,
     DATA_INGESTION_COLLECTION_NAME,
     DATA_INGESTION_DATABASE_NAME,
+    DATA_VALIDATION_DIR_NAME,
+    DATA_VALIDATION_VALID_DIR,
+    DATA_VALIDATION_INVALID_DIR,
+    DATA_VALIDATION_DRIFT_REPORT_DIR,
+    DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,
 )
+
 
 
 class TrainingPipelineConfig:
@@ -54,3 +60,47 @@ class DataIngestionConfig:
         self.train_test_split_ratio = DATA_INGESTION_TRAIN_TEST_SPLIT_RATION
         self.collection_name = DATA_INGESTION_COLLECTION_NAME
         self.database_name = DATA_INGESTION_DATABASE_NAME
+
+class DataValidationConfig:
+    def __init__(self, training_pipeline_config: TrainingPipelineConfig):
+
+        self.data_validation_dir = os.path.join(
+            training_pipeline_config.artifact_dir,
+            DATA_VALIDATION_DIR_NAME
+        )
+
+        self.valid_data_dir = os.path.join(
+            self.data_validation_dir,
+            DATA_VALIDATION_VALID_DIR
+        )
+
+        self.invalid_data_dir = os.path.join(
+            self.data_validation_dir,
+            DATA_VALIDATION_INVALID_DIR
+        )
+
+        self.valid_train_file_path = os.path.join(
+            self.valid_data_dir,
+            TRAIN_FILE_NAME
+        )
+
+        self.valid_test_file_path = os.path.join(
+            self.valid_data_dir,
+            TEST_FILE_NAME
+        )
+
+        self.invalid_train_file_path = os.path.join(
+            self.invalid_data_dir,
+            TRAIN_FILE_NAME
+        )
+
+        self.invalid_test_file_path = os.path.join(
+            self.invalid_data_dir,
+            TEST_FILE_NAME
+        )
+
+        self.drift_report_file_path = os.path.join(
+            self.data_validation_dir,
+            DATA_VALIDATION_DRIFT_REPORT_DIR,
+            DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
+        )
