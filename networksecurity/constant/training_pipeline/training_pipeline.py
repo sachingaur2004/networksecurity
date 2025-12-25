@@ -23,6 +23,29 @@ DATA_VALIDATION_INVALID_DIR = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "report.yaml"
 
+# ================= DATA TRANSFORMATION =================
+DATA_TRANSFORMATION_DIR_NAME = "data_transformation"
+
+TRANSFORMED_TRAIN_DIR_NAME = "transformed_train"
+TRANSFORMED_TEST_DIR_NAME = "transformed_test"
+
+TRANSFORMED_TRAIN_FILE_NAME = "train.npy"
+TRANSFORMED_TEST_FILE_NAME = "test.npy"
+
+PREPROCESSING_OBJECT_FILE_NAME = "preprocessor.pkl"
+
+DATA_TRANSFORMATION_IMPUTER_PARAMS = {
+    "n_neighbors": 3,
+    "weights": "uniform"
+}
+
+# ================= MODEL TRAINER =================
+MODEL_TRAINER_DIR_NAME = "model_trainer"
+MODEL_FILE_NAME = "model.pkl"
+
+# ================= TARGET =================
+TARGET_COLUMN = "Result"
+
 # ================= SCHEMA =================
 import os
 
