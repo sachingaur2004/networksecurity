@@ -8,6 +8,9 @@ TARGET_COLUMN = "label"
 PIPELINE_NAME: str = "NetworkSecurity"
 ARTIFACT_DIR: str = "Artifacts"
 FILE_NAME: str = "phisingData.csv"
+TRAINING_BUCKET_NAME: str = "networksecurity-training"
+
+
 
 TRAIN_FILE_NAME: str = "train.csv"
 TEST_FILE_NAME: str = "test.csv"

@@ -33,6 +33,10 @@ from sklearn.ensemble import (
 
 import mlflow
 
+import dagshub
+
+dagshub.init(repo_owner='sachingaur2004', repo_name='networksecurity', mlflow=True)
+
 
 class ModelTrainer:
     def __init__(
@@ -139,6 +143,8 @@ class ModelTrainer:
             file_path=self.model_trainer_config.trained_model_file_path,
             obj=network_model,
         )
+
+        save_object("final_model/model.pkl",best_model)
 
         ## Model Trainer Artifact
 

@@ -2,6 +2,10 @@
 PIPELINE_NAME = "network_security_pipeline"
 ARTIFACT_DIR = "Artifacts"
 
+# ================= S3 / MODEL STORAGE =================
+TRAINING_BUCKET_NAME = "networksecurity-training"
+SAVED_MODEL_DIR = "final_model"
+
 # ================= DATA INGESTION =================
 DATA_INGESTION_DIR_NAME = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR = "feature_store"
@@ -55,8 +59,4 @@ TARGET_COLUMN = "Result"
 # ================= SCHEMA =================
 import os
 
-SCHEMA_FILE_PATH = os.path.join(
-    "networksecurity",
-    "schema",
-    "schema.yaml"
-)
+SCHEMA_FILE_PATH = os.path.join("networksecurity", "schema", "schema.yaml")
