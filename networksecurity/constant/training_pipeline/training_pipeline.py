@@ -7,13 +7,17 @@ DATA_INGESTION_DIR_NAME = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR = "feature_store"
 DATA_INGESTION_INGESTED_DIR = "ingested"
 
-FILE_NAME = "data.csv"
+# This is just the feature-store filename (NOT source CSV)
+
+
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATION = 0.2
-DATA_INGESTION_COLLECTION_NAME = "network_logs"
-DATA_INGESTION_DATABASE_NAME = "network_security_db"
+
+# ✅ MUST MATCH push_data.py + MongoDB
+DATA_INGESTION_DATABASE_NAME = "Sachindb"
+DATA_INGESTION_COLLECTION_NAME = "NetworkData"
 
 # ================= DATA VALIDATION =================
 DATA_VALIDATION_DIR_NAME = "data_validation"
@@ -26,8 +30,8 @@ DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "report.yaml"
 # ================= DATA TRANSFORMATION =================
 DATA_TRANSFORMATION_DIR_NAME = "data_transformation"
 
-TRANSFORMED_TRAIN_DIR_NAME = "transformed_train"
-TRANSFORMED_TEST_DIR_NAME = "transformed_test"
+DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR = "transformed"
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR = "transformed_object"
 
 TRANSFORMED_TRAIN_FILE_NAME = "train.npy"
 TRANSFORMED_TEST_FILE_NAME = "test.npy"
@@ -35,12 +39,14 @@ TRANSFORMED_TEST_FILE_NAME = "test.npy"
 PREPROCESSING_OBJECT_FILE_NAME = "preprocessor.pkl"
 
 DATA_TRANSFORMATION_IMPUTER_PARAMS = {
+    "missing_values": None,
     "n_neighbors": 3,
-    "weights": "uniform"
+    "weights": "uniform",
 }
 
 # ================= MODEL TRAINER =================
 MODEL_TRAINER_DIR_NAME = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR = "trained_model"
 MODEL_FILE_NAME = "model.pkl"
 
 # ================= TARGET =================
