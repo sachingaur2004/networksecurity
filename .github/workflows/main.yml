@@ -5,25 +5,8 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
-  ci:
-    name: CI - Build & Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: CI check
-        run: echo "CI pipeline passed"
-
   build-and-push:
-    name: Build & Push Docker Image to ECR
-    needs: ci
     runs-on: ubuntu-latest
 
     steps:
@@ -40,8 +23,8 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build, Tag & Push Docker Image
+      - name: Build & Push Docker Image
         run: |
-          ECR_URI=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
-          docker build -t $ECR_URI/${{ secrets.AWS_ECR_REPOSITORY }}:latest .
-          docker push $ECR_URI/${{ secrets.AWS_ECR_REPOSITORY }}:latest
+          ECR_URI=260735202232.dkr.ecr.ap-south-1.amazonaws.com
+          docker build -t $ECR_URI/networksecurity2-ml-2026:latest .
+          docker push $ECR_URI/networksecurity2-ml-2026:latest
